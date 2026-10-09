@@ -1,0 +1,9 @@
+#carrosselEventPlus {
+  width: 100%;
+}
+
+
+.carousel-banner {
+  width: 100%;
+  object-fit: cover;
+}

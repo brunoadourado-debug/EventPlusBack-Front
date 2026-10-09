@@ -1,0 +1,69 @@
+:root {
+    --cinza-claro: #ded9da;
+    --branco: #ffffff;
+    --cor-texto: #17143f;
+    --vermelho: #821B47;
+    --vermelho-claro: #be2a4a;
+    --azul: rgba(0, 80, 251, 0.21);
+}
+
+
+
+
+.home-eventos-card {
+    border: 1px solid var(--cinza-claro);
+    border-radius: 12px;
+    overflow: hidden;
+    border-color: var(--vermelho);
+    max-width: 250px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.home-eventos-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.home-eventos-card span {
+    background-color: var(--azul);
+    color: var(--cor-texto);
+    border-radius: 20px;
+    padding: 5px;
+    width: max-content;
+}
+
+
+.home-eventos-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: none;
+}
+
+.home-eventos-info button {
+    border: none;
+    background: transparent;
+    margin: 20px;
+    color: var(--vermelho-claro);
+    font-size: 18px;
+    cursor: pointer;
+    
+}
+
+.link {
+    text-decoration: none;
+    color: var(--vermelho);
+}
+
+
+.home-eventos-card h3,
+.home-eventos-card p,
+.home-eventos-card span,
+.home-eventos-card button {
+    margin: 12px 16px;
+}

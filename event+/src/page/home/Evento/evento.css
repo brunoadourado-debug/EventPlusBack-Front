@@ -1,0 +1,39 @@
+.filtros {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 32px auto 16px auto;
+  padding: 0 16px;
+}
+
+.botao-filtro {
+  background-color: transparent;
+  color: #1e1e1e;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.botao-filtro.ativo {
+  background-color: #be2a4a;
+  color: #ffffff;
+}
+
+.botao-filtro:hover:not(.ativo) {
+  background-color: #f2f2f2;
+}
+
+.div-legal {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 16px auto 32px auto;
+  padding: 0 16px;
+}
