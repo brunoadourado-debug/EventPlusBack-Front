@@ -16,7 +16,7 @@ namespace EventPlus.WebAPI.Repository
 
         public async Task<Comentario?> BuscarPorId(Guid id)
         {
-            return await _eventContext.Comentario.FirstOrDefaultAsync(x => x.ComentarioId == id);
+            return await _eventContext.Comentario.Include(x => x.Usuario).FirstOrDefaultAsync(x => x.ComentarioId == id);
         }
 
         public async Task Cadastrar(Comentario comentario)
@@ -63,7 +63,7 @@ namespace EventPlus.WebAPI.Repository
 
         public async Task<List<Comentario>> ListarPorEvento(Guid idevento)
         {
-            return await _eventContext.Comentario.Where(x => x.EventoId == idevento).AsNoTracking().ToListAsync();
+            return await _eventContext.Comentario.Include(x => x.Usuario).Where(x => x.EventoId == idevento).AsNoTracking().ToListAsync();
         }
     }
 }

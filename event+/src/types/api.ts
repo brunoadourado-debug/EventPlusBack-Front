@@ -9,6 +9,28 @@ export interface Usuario {
   email: string;
   senha: string;
   nome: string;
+  tipoUsuario: TipoUsuario | null;
+}
+
+export interface LoginPayload{
+    email: string;
+    senha: string;
+}
+
+export interface LoginResponse{
+    token: string;
+    expiracao: string;
+    usuario: Usuario;
+}
+
+export interface AuthSession extends LoginResponse {
+    usuario: Usuario;
+}
+
+export interface PresencaPayload {
+    situacao: boolean;
+    eventoId: string;
+    usuarioId: string | null;
 }
 
 export interface StatusEvento {
@@ -32,12 +54,13 @@ export interface Evento {
   eventoId: string;
   tipoEventoId?: string | null;
   instituicaoId?: string | null;
-  dataEvento: Date | string;
+  dataEvento: string | string;
   titulo: string;
   descricao: string;
   imagemUrl?: string | null;
   idStatusEvento?: string | null;
   tipoEvento: TipoEvento | null;
+  instituicao: Instituicao | null;
 }
 
 export interface Presenca {
@@ -54,4 +77,5 @@ export interface Comentario {
   comentarioUsuario: string;
   exibe?: boolean | null;
   dataComentario: Date | string;
+  usuario : Usuario | null;
 }

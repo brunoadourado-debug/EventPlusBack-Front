@@ -15,11 +15,26 @@ function Home() {
 
   useEffect(() => {
     async function carregar() {
-      const dados = await eventoService.listar()
-      setEventos(dados)
+      const dados = await eventoService.listar();
+
+      const hoje = new Date();
+      hoje.setHours(0, 0, 0, 0);
+
+      const proximosEventos = dados
+        .filter((evento) => new Date(evento.dataEvento) >= hoje)
+        .sort(
+          (a, b) =>
+            new Date(a.dataEvento).getTime() -
+            new Date(b.dataEvento).getTime()
+        )
+        .slice(0, 3);
+
+      setEventos(proximosEventos);
     }
-    void carregar()
-  }, [])
+
+    void carregar();
+  }, []);
+
   return (
     <>
       <Header />
@@ -33,8 +48,9 @@ function Home() {
             <div className="home-visao-texto">
               <h1>Visão</h1>
               <p>
-                A EventPlus organiza eventos e informações em uma interface direta,
-                facilitando a consulta da agenda e a participação dos usuários.
+                A EventPlus organiza eventos e informações em uma interface
+                direta, facilitando a consulta da agenda e a participação dos
+                usuários.
               </p>
             </div>
           </div>
@@ -45,13 +61,14 @@ function Home() {
             <h2>Próximos eventos</h2>
             <hr />
           </div>
+
           <div className="home-eventos-lista">
             {eventos.map((evento) => (
               <CardEvento
-                key={evento.eventoId }
-                id={evento.eventoId }
-                titulo={evento.titulo }
-                imagem={evento.imagemUrl || evento.imagemUrl }
+                key={evento.eventoId}
+                id={evento.eventoId}
+                titulo={evento.titulo}
+                imagem={evento.imagemUrl}
                 categoria={evento.tipoEvento.titulo}
                 descricao={evento.descricao}
               />
