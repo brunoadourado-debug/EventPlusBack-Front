@@ -1,6 +1,6 @@
 export interface TipoUsuario {
   idtipoUsuario: string;
-  titulo?: string | null;
+  titulo: string | null;
 }
 
 export interface Usuario {
@@ -78,4 +78,11 @@ export interface Comentario {
   exibe?: boolean | null;
   dataComentario: Date | string;
   usuario : Usuario | null;
+}
+
+export interface UsuarioPayload {
+    nome: string,
+    email: string,
+    senha: string,
+    idtipoUsuario: string,
 }

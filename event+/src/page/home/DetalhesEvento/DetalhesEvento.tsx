@@ -44,13 +44,14 @@ function normalizarLista(resposta: any): any[] {
     return bruto && typeof bruto === "object" ? [bruto] : [];
 }
 
-function formatarDataComentario(
-    data: Date | string | undefined
-): string {
+function formatarDataHora(data: Date | string | undefined): string {
     if (!data) return "";
 
     try {
-        return new Date(data).toLocaleDateString("pt-BR", {
+        const dataObj = new Date(data);
+        if (isNaN(dataObj.getTime())) return String(data);
+
+        return dataObj.toLocaleString("pt-BR", {
             day: "2-digit",
             month: "2-digit",
             year: "numeric",
@@ -375,7 +376,7 @@ function DetalhesEvento() {
                                                 <strong>{obterAutorComentario(c)}</strong>
 
                                                 <small className="comentario-data">
-                                                    {formatarDataComentario(c.dataComentario)}
+                                                    {formatarDataHora(c.dataComentario)}
                                                 </small>
                                             </div>
 
@@ -397,7 +398,7 @@ function DetalhesEvento() {
 
                     <div className="detalhes-linha">
                         <img src={relogio} alt="" />
-                        <span>{evento?.dataEvento}</span>
+                        <span>{formatarDataHora(evento?.dataEvento)}</span>
                     </div>
 
                     <div className="detalhes-linha">

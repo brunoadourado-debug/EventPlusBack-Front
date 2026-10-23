@@ -1,0 +1,244 @@
+/* ==========================================================================
+   Variáveis Globais da Paleta
+   ========================================================================== */
+:root {
+  --cor-vinho: #B52847;
+  --cor-vinho-hover: #961E38;
+  --cor-texto-escuro: #222222;
+  --cor-linha-input: #888888;
+  --cor-fundo-pagina: #FFFFFF;
+}
+
+/* Base da página */
+.cadastro-tipo-evento-page {
+  background-color: var(--cor-fundo-pagina);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Seção Superior - Título e Formulário
+   ========================================================================== */
+.cadastro-tipo-evento-formulario-section {
+  padding: 2.5rem 1rem 3rem;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Título principal com sublinhado vermelho/vinho */
+.section-title {
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--cor-texto-escuro);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 3px;
+  background-color: var(--cor-vinho);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* Container flex da imagem + formulário */
+.cadastro-tipo-evento-conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.cadastro-tipo-evento-imagem-container {
+  max-width: 420px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cadastro-tipo-evento-imagem-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Formulário e Inputs */
+.cadastro-tipo-evento-formulario {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+  gap: 1.8rem;
+}
+
+/* Estilo do input com linha inferior simples */
+.cadastro-tipo-evento-formulario input {
+  border: none !important;
+  border-bottom: 1.5px solid var(--cor-linha-input) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding: 0.5rem 0.2rem !important;
+  font-size: 0.95rem;
+  color: var(--cor-texto-escuro);
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cadastro-tipo-evento-formulario input::placeholder {
+  color: #A0A0A0;
+}
+
+.cadastro-tipo-evento-formulario input:focus {
+  border-bottom-color: var(--cor-vinho) !important;
+}
+
+/* Botão Cadastrar / Salvar */
+.cadastro-tipo-evento-formulario button[type="submit"] {
+  background-color: var(--cor-vinho);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.cadastro-tipo-evento-formulario button[type="submit"]:hover:not(:disabled) {
+  background-color: var(--cor-vinho-hover);
+}
+
+.cadastro-tipo-evento-formulario button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.cadastro-tipo-evento-cancelar {
+  background: transparent;
+  border: 1px solid var(--cor-linha-input);
+  color: var(--cor-texto-escuro);
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.cadastro-tipo-evento-mensagem {
+  font-size: 0.85rem;
+  color: var(--cor-vinho);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Seção Inferior - Tabela com Fundo Vinho
+   ========================================================================== */
+.lista-tipo-evento-section {
+  background-color: var(--cor-vinho);
+  color: #ffffff;
+  width: 100%;
+  padding: 3.5rem 1.5rem 5rem;
+  box-sizing: border-box;
+  margin-top: auto;
+}
+
+.section-title-lista {
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.section-title-lista::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2.5px;
+  background-color: #ffffff;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.lista-status {
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+/* Tabela da Lista */
+.lista-tipo-evento-tabela {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  color: #ffffff;
+}
+
+.lista-tipo-evento-tabela th,
+.lista-tipo-evento-tabela td {
+  padding: 0.9rem 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.lista-tipo-evento-tabela th {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.col-titulo {
+  text-align: left;
+}
+
+.col-acao {
+  text-align: center;
+  width: 90px;
+}
+
+.lista-tipo-evento-tabela tr.em-edicao {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Botões de Ícones (Editar e Deletar) */
+.btn-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  filter: brightness(0) invert(1); /* Torna os ícones totalmente brancos */
+  opacity: 0.9;
+  transition: opacity 0.2s;
+  padding: 0.2rem;
+}
+
+.btn-icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
